@@ -11,9 +11,22 @@
 |
 */
 
-Route::get('/', function()
+// Route::get('/', function()
+// {
+	// return View::make('hello');
+// });
+
+// Route::get('test', function(){
+	// echo "testing";
+// });
+
+// Route::get('/halo', function(){
+	// return "Halo, bro";
+// });
+
+Route::get('/halo', function()
 {
-	return View::make('hello');
+    return "Halo, bro";
 });
 
 Route::get('utama', function(){
