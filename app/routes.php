@@ -29,6 +29,7 @@ Route::get('/halo', function()
     return "Halo, bro";
 });
 
+
 Route::get('utama','JadwalikController@utama');
 
 Route::get('dosen', function(){
@@ -51,6 +52,8 @@ Route::get('dosen', function(){
 			echo $j->matakuliah->MATA_KULIAH."(".$j->matakuliah->KODE.")<br/>";
 			echo "<small>".$j->dosen->DOSEN."(".$j->dosen->KODE_DOSEN.")</small><br/>";
 			echo $j->JAM_MULAI."-".$j->JAM_AKHIR." ".$j->ruang->RUANG."<br/>";
+			echo "kelas:".$j->kelas->NAMA_KELAS."</br>";
+			echo "keterangan:".$j->KETERANGAN."</br>";
 			echo "<hr/>";
 		}
 		
@@ -79,12 +82,41 @@ Route::get('ruangan', function(){
 				echo $j->matakuliah->MATA_KULIAH."(".$j->matakuliah->KODE.")<br/>";
 				echo "<small>".$j->dosen->DOSEN."(".$j->dosen->KODE_DOSEN.")</small><br/>";
 				echo $j->JAM_MULAI."-".$j->JAM_AKHIR." ".$j->ruang->RUANG."<br/>";
+				echo "kelas:".$j->kelas->NAMA_KELAS."</br>";
+				echo "keterangan:".$j->KETERANGAN."</br>";
 				echo "<hr/>";
 			}
 			
 		}
 	}
+});
 
+Route::get('matakuliah', function(){
 
+	$kode_mk = Input::get("mk");
 
+	$matakuliah = Matakuliah::whereRaw("KODE=?", array($kode_mk))->first();
+
+	if ($matakuliah != null) {
+		echo "<h1>".$matakuliah->MATA_KULIAH."</h1>";
+
+		$hari = array("Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu", "Minggu");
+
+		for ($i = 0; $i < count($hari); $i++) {
+
+			echo "<h2>".$hari[$i]."</h2>";
+
+			$jadwals = Jadwal::whereRaw("KODE=? && HARI = ?", array($matakuliah->KODE, $i));
+
+			foreach ($jadwals->get()->sortBy("JAM_MULAI") as $j) {
+				echo $j->matakuliah->MATA_KULIAH."(".$j->matakuliah->KODE.")<br/>";
+				echo "<small>".$j->dosen->DOSEN."(".$j->dosen->KODE_DOSEN.")</small><br/>";
+				echo $j->JAM_MULAI."-".$j->JAM_AKHIR." ".$j->ruang->RUANG."<br/>";
+				echo "kelas:".$j->kelas->NAMA_KELAS."</br>";
+				echo "keterangan:".$j->KETERANGAN."</br>";
+				echo "<hr/>";
+			}
+			
+		}
+	}
 });
