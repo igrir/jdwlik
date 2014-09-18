@@ -37,9 +37,10 @@ Route::get('utama', function(){
 
 	echo "<h1>hari ini</h1>";
 
-	$jadwals = Jadwal::whereRaw("HARI="+$today);
+	$jadwals = Jadwal::whereRaw("HARI=?",array($tomorrow));
 
 	foreach ($jadwals->get()->sortBy("JAM_MULAI") as $j) {
+		echo "hari:".$j->HARI."</br>";
 		echo $j->matakuliah->MATA_KULIAH."(".$j->matakuliah->KODE.")<br/>";
 		echo "<small>".$j->dosen->DOSEN."(".$j->dosen->KODE_DOSEN.")</small><br/>";
 		echo $j->JAM_MULAI."-".$j->JAM_AKHIR." ".$j->ruang->RUANG."<br/>";
