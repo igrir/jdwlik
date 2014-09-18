@@ -2,7 +2,6 @@
 
 @section('content')
 	<ul data-role="listview" data-filter="true" data-input="#filterBasic-input">
-    
 	@foreach ($jadwals->get()->sortBy("JAM_MULAI") as $j)
 		<li><a href="#">
 		<p>{{$j->matakuliah->MATA_KULIAH}}&nbsp{{$j->matakuliah->KODE}}</p>
@@ -20,11 +19,10 @@
 <h1>Jadwal Ilmu Komputer</h1>
 	<div data-role="navbar">
 		<ul>
-			<li ><a href="{{url('utama');}}" class="ui-btn-active">Hari Ini</a></li>
-			<li><a href="{{url('besok');}}">Besok</a></li>
+			<li ><a href="{{url('utama')}}">Hari Ini</a></li>
+			<li><a href="{{url('besok')}}" class="ui-btn-active">Besok</a></li>
 			<li><a href="#">Menu</a></li>
 		</ul>
 	</div><!-- /navbar -->
 </div><!-- /header -->
 @stop
-

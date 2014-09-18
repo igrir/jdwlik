@@ -10,6 +10,11 @@
 
 <body>
 	<div data-role="page">
+		
+		@yield('header')
+		<form class="ui-filterable">
+			<input id="filterBasic-input" data-type="search">
+		</form>
 		@yield('content')
 	</div>
 </body>

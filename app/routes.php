@@ -31,6 +31,7 @@ Route::get('/halo', function()
 
 
 Route::get('utama','JadwalikController@utama');
+Route::get('besok','JadwalikController@besok');
 
 Route::get('dosen', function(){
 

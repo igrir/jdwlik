@@ -4,10 +4,17 @@ class JadwalikController extends BaseController{
 		$today = date("w", time());
 		$tomorrow = ($today>=7?1:$today+1);
 
-		echo "<h1>hari ini</h1>";
-
-		$jadwals = Jadwal::whereRaw("HARI="+$today);
+		$jadwals = Jadwal::whereRaw("HARI=?",array($today));
 
 		return View::make('contentutama')->with('jadwals',$jadwals);
+	}
+	public function besok(){
+		$today = date("w", time());
+		$tomorrow = ($today>=7?1:$today+1);
+		$buset=5;
+		$jadwals = Jadwal::whereRaw("HARI=?",array($tomorrow));
+
+		return View::make('contentbesok')->with('jadwals',$jadwals);
+	
 	}
 }
