@@ -29,28 +29,8 @@ Route::get('/halo', function()
     return "Halo, bro";
 });
 
-Route::get('utama', function(){
-
-	//dapatkan hari
-	$today = date("w", time());
-	$tomorrow = ($today>=7?1:$today+1);
-
-	echo "<h1>hari ini</h1>";
-
-	$jadwals = Jadwal::whereRaw("HARI=?",array($tomorrow));
-
-	foreach ($jadwals->get()->sortBy("JAM_MULAI") as $j) {
-		echo "hari:".$j->HARI."</br>";
-		echo $j->matakuliah->MATA_KULIAH."(".$j->matakuliah->KODE.")<br/>";
-		echo "<small>".$j->dosen->DOSEN."(".$j->dosen->KODE_DOSEN.")</small><br/>";
-		echo $j->JAM_MULAI."-".$j->JAM_AKHIR." ".$j->ruang->RUANG."<br/>";
-		echo "kelas:".$j->kelas->NAMA_KELAS."</br>";
-		echo "keterangan:".$j->KETERANGAN."</br>";
-		echo "<hr/>";
-	}
-
-	
-});
+Route::get('utama','JadwalikController@utama');
+Route::get('besok','JadwalikController@besok');
 
 Route::get('dosen', function(){
 
