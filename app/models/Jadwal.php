@@ -15,4 +15,8 @@ class Jadwal extends Eloquent{
 		return $this->hasOne('Ruang', 'ID_RUANG', 'ID_RUANG');
 	}
 
+	public function kelas(){
+		return $this->hasOne('Kelas', 'ID_KELAS', 'ID_KELAS');
+	}	
+
 }
