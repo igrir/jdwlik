@@ -11,10 +11,21 @@
 <body>
 	<div data-role="page"  >
 		<div data-role="header" style="overflow:hidden;" data-add-back-btn="true">
+			
 			@yield('header')
+			
+			<ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview">
+				<li data-icon="info" data-iconpos="right">
+					<a href="#">@yield('matakuliah')</a>
+				</li>
+				<li data-icon="user" data-iconpos="right">
+					<a href="#">@yield('dosen')</a>
+				</li>
+			</ul>
+			
 			@yield('search')
 			@yield('content')
-		</div><!-- /header -->
+		</div>
 	</div>
 </body>
 </html>

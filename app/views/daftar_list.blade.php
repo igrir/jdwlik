@@ -7,14 +7,12 @@
 	<script src="<?php echo asset('jqmobile/jquery-1.11.1.min.js') ?>"></script>
 	<script src="<?php echo asset('jqmobile/jquery.mobile-1.4.4.min.js') ?>"></script>
 </head>
-
 <body>
-	<div data-role="page"  >
-		<div data-role="header" style="overflow:hidden;" data-add-back-btn="true">
-			@yield('header')
-			@yield('search')
-			@yield('content')
-		</div><!-- /header -->
+	<div data-role="page">	
+	<div data-role="header" style="overflow:hidden;" data-add-back-btn="true">
+		@yield('header')
+		@yield('search')
+		@yield('daftar')
 	</div>
 </body>
 </html>

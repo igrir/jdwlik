@@ -31,8 +31,14 @@ Route::get('/halo', function()
 
 Route::get('utama','JadwalikController@utama');
 Route::get('besok','JadwalikController@besok');
+Route::get('menu','JadwalikController@menu');
+Route::get('dosen','JadwalikController@getDosen');
+Route::get('matakuliah','JadwalikController@getMataKuliah');
+Route::get('ruangan','JadwalikController@getRuangan');
+Route::get('hari','JadwalikController@getHari');
+Route::get('detail', 'JadwalikController@getDetail');
 
-Route::get('dosen', function(){
+Route::get('getdosen', function(){
 
 	$kode_dosen = Input::get("kd");
 
@@ -61,7 +67,7 @@ Route::get('dosen', function(){
 
 });
 
-Route::get('ruangan', function(){
+Route::get('getruangan', function(){
 
 	$kode_ruangan = Input::get("r");
 
@@ -91,7 +97,7 @@ Route::get('ruangan', function(){
 	}
 });
 
-Route::get('matakuliah', function(){
+Route::get('getmatakuliah', function(){
 
 	$kode_mk = Input::get("mk");
 
