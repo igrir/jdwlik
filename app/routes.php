@@ -29,7 +29,10 @@ Route::get('/halo', function()
     return "Halo, bro";
 });
 
+Route::get('/', 'JadwalikController@utama');
+
 Route::get('utama','JadwalikController@utama');
+
 Route::get('besok','JadwalikController@besok');
 Route::get('menu','JadwalikController@menu');
 Route::get('dosen','JadwalikController@getDosen');
@@ -37,6 +40,7 @@ Route::get('matakuliah','JadwalikController@getMataKuliah');
 Route::get('ruangan','JadwalikController@getRuangan');
 Route::get('hari','JadwalikController@getHari');
 Route::get('detail', 'JadwalikController@getDetail');
+Route::get('about', 'JadwalikController@getAbout');
 
 Route::get('getdosen', function(){
 

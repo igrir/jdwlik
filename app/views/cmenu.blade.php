@@ -6,6 +6,7 @@
 		<li><a href="{{url('matakuliah');}}">Mata Kuliah</a></li>
 		<li><a href="{{url('ruangan');}}">Ruangan</a></li>
 		<li><a href="{{url('hari');}}">Hari</a></li>
+		<li><a href="{{url('about');}}">(info) Mengenai Aplikasi</a></li>
 	</ul>
 
 @stop

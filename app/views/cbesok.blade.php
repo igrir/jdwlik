@@ -3,11 +3,13 @@
 @section('content')
 	<ul data-role="listview" data-filter="true" data-input="#filterBasic-input-besok">
 	@foreach ($jadwals->get()->sortBy("JAM_MULAI") as $j)
-		<li><a href="#">
-		<p>{{$j->matakuliah->MATA_KULIAH}}&nbsp{{$j->matakuliah->KODE}}</p>
-		<p>{{$j->dosen->DOSEN}} &nbsp {{$j->dosen->KODE}}</p>
-		<p>{{$j->JAM_MULAI}}-{{$j->JAM_AKHIR}} &nbsp {{$j->ruang->RUANG}}</p>
-		<p>{{$j->kelas->NAMA_KELAS}}</p>
+		<li><a href="{{url('detail')}}?kode_jadwal={{$j->ID_JADWAL}}">
+		{{$j->matakuliah->MATA_KULIAH}} (<small>{{$j->matakuliah->KODE}}</small>)<br/>
+		{{$j->JAM_MULAI}}-{{$j->JAM_AKHIR}} &nbsp &#64{{$j->ruang->RUANG}}<br/>
+		{{$j->kelas->NAMA_KELAS}}
+		<p>{{$j->dosen->DOSEN}} &nbsp {{$j->dosen->KODE}}</p>		
+		
+		</a></li>
 		
 		</a></li>
 	@endforeach

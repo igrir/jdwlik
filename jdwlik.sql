@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 18, 2014 at 06:32 AM
+-- Generation Time: Sep 30, 2014 at 06:09 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -91,7 +91,7 @@ INSERT INTO `Dosens` (`KODE_DOSEN`, `DOSEN`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `Jadwals` (
-  `ID_room` int(11) NOT NULL AUTO_INCREMENT,
+  `ID_JADWAL` int(11) NOT NULL AUTO_INCREMENT,
   `KODE` varchar(30) NOT NULL,
   `KODE_DOSEN` varchar(30) NOT NULL,
   `HARI` int(30) DEFAULT NULL COMMENT 'Senin = 0, Minggu = 6, Kosong = NULL',
@@ -102,14 +102,14 @@ CREATE TABLE IF NOT EXISTS `Jadwals` (
   `ID_RUANG` int(11) NOT NULL,
   `ID_KELAS` int(11) NOT NULL,
   `KETERANGAN` text,
-  PRIMARY KEY (`ID_room`)
+  PRIMARY KEY (`ID_JADWAL`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=138 ;
 
 --
 -- Dumping data for table `Jadwals`
 --
 
-INSERT INTO `Jadwals` (`ID_room`, `KODE`, `KODE_DOSEN`, `HARI`, `KAPASITAS`, `JML_MHS`, `JAM_MULAI`, `JAM_AKHIR`, `ID_RUANG`, `ID_KELAS`, `KETERANGAN`) VALUES
+INSERT INTO `Jadwals` (`ID_JADWAL`, `KODE`, `KODE_DOSEN`, `HARI`, `KAPASITAS`, `JML_MHS`, `JAM_MULAI`, `JAM_AKHIR`, `ID_RUANG`, `ID_KELAS`, `KETERANGAN`) VALUES
 (1, 'IK451', '2770', 3, 40, 16, '07:00', '09:30', 6, 1, 'Gabung 2012'),
 (2, 'MA300', '716', 1, 20, 1, '15:30', '18:00', 6, 2, 'Gabung 2013'),
 (3, 'IK340', '2591', 2, 50, 2, '15:30', '17:10', 6, 2, 'Gabung 2013'),

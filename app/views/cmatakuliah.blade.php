@@ -3,7 +3,7 @@
 @section('daftar')
 	<ul data-role="listview" data-filter="true" data-input="#filterBasic-input-daftar">
 		@foreach($daftar as $row)
-			<li><a href="#">{{$row->MATA_KULIAH}}</a></li>
+			<li><a href="{{url('detail')}}?kode_mk={{$row->KODE}}">{{$row->MATA_KULIAH}}</a></li>
 		@endforeach
 	</ul>
 @stop
