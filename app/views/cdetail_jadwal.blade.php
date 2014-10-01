@@ -49,3 +49,7 @@
 @section('ruangan')
 	{{$RUANGAN}}
 @stop
+
+@section('waktu')
+	{{$HARI}}, {{$JAM_MULAI}}-{{$JAM_AKHIR}}
+@stop

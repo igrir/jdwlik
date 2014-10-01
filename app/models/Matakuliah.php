@@ -2,7 +2,7 @@
 
 class Matakuliah extends Eloquent{
 	
-	protected $table = "matakuliahs";
+	protected $table = "Matakuliahs";
 
 	public function jadwal(){
 		return $this->belongsTo('Jadwal', 'KODE', 'KODE');

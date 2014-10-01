@@ -46,13 +46,22 @@ class JadwalikController extends BaseController{
 			$mk = Jadwal::where("ID_JADWAL","=",$kode_jadwal);
 
 			if ($mk->count() == 1) {
+
+				$hari = $mk->get()[0]->HARI;
+				$arr_hari = array("SENIN", "SELASA", "RABU", "KAMIS", "JUMAT", "SABTU", "MINGGU");
+				$str_hari = $arr_hari[$hari];
+
 				$variables = array("NAMA_MK"=>$mk->get()[0]->matakuliah->MATA_KULIAH,
 								   "KODE_MK"=>$mk->get()[0]->matakuliah->KODE,
 								   "NAMA_DOSEN"=>$mk->get()[0]->dosen->DOSEN,
 								   "KODE_DOSEN"=>$mk->get()[0]->dosen->KODE_DOSEN,
 								   "RUANGAN"=>$mk->get()[0]->ruang->RUANG,
 								   "ID_RUANG"=>$mk->get()[0]->ruang->ID_RUANG,
-								   "KETERANGAN"=>$mk->get()[0]->KETERANGAN);
+								   "KETERANGAN"=>$mk->get()[0]->KETERANGAN,
+								   "JAM_MULAI"=>$mk->get()[0]->JAM_MULAI,
+								   "JAM_AKHIR"=>$mk->get()[0]->JAM_AKHIR,
+								   "JAM_AKHIR"=>$mk->get()[0]->JAM_AKHIR,
+								   "HARI"=>$str_hari);
 
 				return View::make('cdetail_jadwal', $variables);
 			}

@@ -1,6 +1,8 @@
 <?php
 
 class Jadwal extends Eloquent{
+
+	protected $table = "Jadwals";
 	
 	public function dosen()
 	{

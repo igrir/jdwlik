@@ -21,6 +21,8 @@
 			<li> <a href="{{url('detail')}}?kode_mk={{$KODE_MK}}" style="white-space:normal"> @yield('matakuliah')-@yield('kode_matakuliah') </a> </li>
 			<li data-role="list-divider">Nama dosen</li>
 			<li> <a href="{{url('detail')}}?kode_dosen={{$KODE_DOSEN}}" style="white-space:normal"> @yield('dosen')-@yield('kode_dosen') </a> </li>
+			<li data-role="list-divider">WAKTU</li>
+			<li>@yield('waktu')</li>
 			<li data-role="list-divider">Ruangan</li>
 			<li> <a href="{{url('detail')}}?id_ruang={{$ID_RUANG}}" style="white-space:normal"> @yield('ruangan')</a> </li>
 			<li data-role="list-divider">Keterangan</li>
